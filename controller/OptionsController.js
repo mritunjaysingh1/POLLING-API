@@ -10,7 +10,7 @@ module.exports.create = async function (req, res) {
   });
   //  Adding the vote to option of the id
   const updateOpt = await Option.findByIdAndUpdate(opt._id, {
-    add_vote: `http://localhost:3000/api/v1/options/${opt._id}/add_vote`,
+    add_vote: `https://polling-api-kohl.vercel.app/api/v1/options/${opt._id}/add_vote`,
   });
   updateOpt.save();
   const ques = await Question.findById(req.params.id);

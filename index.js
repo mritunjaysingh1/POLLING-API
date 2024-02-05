@@ -12,6 +12,6 @@ app.listen(Port, function (err) {
   if (err) {
     console.log(err);
   }
-  console.log("hello", process.env.DB_URL);
+
   console.log("server is runing ...", Port);
 });
