@@ -1,5 +1,8 @@
 const Option = require("../models/options");
 const Question = require("../models/questions");
+require("dotenv").config();
+
+const BASE_URL = process.env.BASE_URL;
 
 // // Create options using id given in question
 module.exports.create = async function (req, res) {
@@ -10,7 +13,7 @@ module.exports.create = async function (req, res) {
   });
   //  Adding the vote to option of the id
   const updateOpt = await Option.findByIdAndUpdate(opt._id, {
-    add_vote: `https://polling-api-kohl.vercel.app/api/v1/options/${opt._id}/add_vote`,
+    add_vote: `${BASE_URL}/api/v1/options/${opt._id}/add_vote`,
   });
   updateOpt.save();
   const ques = await Question.findById(req.params.id);
